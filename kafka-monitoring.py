@@ -1,7 +1,7 @@
 from kafka import KafkaConsumer
 from prometheus_client import Counter, Histogram, start_http_server
 
-topic ='movielog8'
+topic ='movielog2'
 
 start_http_server(8765)
 
@@ -19,7 +19,7 @@ def main():
         topic, #topic here
         bootstrap_servers='localhost:9092',
         auto_offset_reset='earliest',
-#         group_id='<<GROUP_ID>>', #group ID here
+        group_id=topic, #group ID here
         enable_auto_commit=True,
         auto_commit_interval_ms=1000
     )
